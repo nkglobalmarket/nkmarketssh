@@ -3,7 +3,7 @@
 echo "NK MARKET SETUP"
 echo "Bu script, nkmarketvip.sh dosyasını indirip kaydedecek."
 
-read -p "Devam etmek istiyor musunuz? (Evet/Hayir): " response
+read -p "Devam etmek istiyor musunuz? (Evet(e)/Hayir(h)): " response
 
 if [[ $response =~ ^[EeYy]$ ]]; then
     wget https://raw.githubusercontent.com/nkglobalmarket/nkmarket/master/nkmarketvip -O nkmarketvip
