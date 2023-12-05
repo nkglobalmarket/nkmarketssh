@@ -25,8 +25,9 @@ while true; do
             ;;
         2)
             echo "x-ui kur secildi."
-            echo "Calisan komut: apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Plus && chmod 777 Plus && ./Plus"
-            apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Plus && chmod 777 Plus && ./Plus
+            echo "X-ui English "
+          
+bash <(curl -Ls https://raw.githubusercontent.com/NidukaAkalanka/x-ui-english/master/install.sh)
             ;;
         3)
             echo "nkmarket güncelle secildi."
