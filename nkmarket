@@ -1,15 +1,20 @@
 #!/bin/bash
 
 echo "NK MARKET SETUP"
-echo "Bu script, nkmarketvip.sh dosyasını indirip kaydedecek."
+echo "Bu script, nkmarketvip dosyasını indirip nkmarket olarak kaydedecek."
 
-read -p "Devam etmek istiyor musunuz? (Evet(e)/Hayir(h)): " response
+read -p "Devam etmek istiyor musunuz? (Evet(e)/Hayır(h)): " response
 
 if [[ $response =~ ^[EeYy]$ ]]; then
-    wget https://raw.githubusercontent.com/nkglobalmarket/nkmarket/master/nkmarketvip -O nkmarketvip
-    chmod +x nkmarketvip
-    echo "nkmarketvip dosyası başarıyla indirildi ve kaydedildi."
-    echo "Artık 'nkmarketvip' komutunu kullanabilirsiniz."
+    if [ -f nkmarket ]; then
+        mv nkmarket nkmarket_backup
+        echo "Mevcut 'nkmarket' dosyası yedeklenerek 'nkmarket_backup' olarak adlandırıldı."
+    fi
+
+    wget https://raw.githubusercontent.com/nkglobalmarket/nkmarket/master/nkmarketvip -O nkmarket
+    chmod +x nkmarket
+    echo "nkmarketvip dosyası başarıyla indirildi ve nkmarket olarak kaydedildi."
+    echo "Artık 'nkmarket' komutunu kullanabilirsiniz."
 else
     echo "İşlem iptal edildi. Script kapatılıyor."
 fi
