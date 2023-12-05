@@ -21,7 +21,7 @@ while true; do
         1)
             echo "Ssh kur secildi."
             echo "Calisan komut: apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Plus && chmod 777 Plus && ./Plus"
-            https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Plus && chmod 777 Plus && ./Plus
+            apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Plus && chmod 777 Plus && ./Plus
             ;;
         2)
             echo "x-ui kur secildi."
