@@ -31,8 +31,8 @@ while true; do
             ;;
         3)
             echo "nkmarket güncelle seçildi."
-            echo "Çalışan komut: apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/nkglobalmarket/SSHPLUS/master/nkmarket.sh && chmod 777 nkmarket.sh && ./nkmarket.sh"
-            wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/main/nkmarket && chmod 777 nkmarket && ./nkmarket
+            echo "/master/nkmarket.sh && chmod 777 nkmarket.sh && ./nkmarket.sh"
+       wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/main/nkmarket && chmod 777 nkmarket && ./nkmarket
             ;;
         4)
             echo "Gerekli dosyaları yükle seçildi. Komutlar ekleniyor..."
