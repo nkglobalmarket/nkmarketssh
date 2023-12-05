@@ -6,7 +6,7 @@ echo "Bu script, nkmarketvip.sh dosyasını indirip kaydedecek."
 read -p "Devam etmek istiyor musunuz? (Evet/Hayir): " response
 
 if [[ $response =~ ^[EeYy]$ ]]; then
-    wget https://raw.githubusercontent.com/nkglobalmarket/SSHPLUS/master/nkmarketvip.sh -O nkmarketvip
+    wget https://raw.githubusercontent.com/nkglobalmarket/nkmarket/master/nkmarketvip -O nkmarketvip
     chmod +x nkmarketvip
     echo "nkmarketvip dosyası başarıyla indirildi ve kaydedildi."
     echo "Artık 'nkmarketvip' komutunu kullanabilirsiniz."
