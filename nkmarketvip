@@ -13,35 +13,45 @@ while true; do
     echo "1. ssh kur"
     echo "2. x-ui kur"
     echo "3. nkmarket güncelle"
-    echo "4. cik"
-    
-    read -p "Secenek girin (1/2/3/4): " option
+    echo "4. Gerekli dosyaları yükle"
+    echo "5. Çıkış"
+
+    read -p "Seçenek girin (1/2/3/4/5): " option
 
     case $option in
         1)
-            echo "Ssh kur secildi."
-            echo "Calisan komut: apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Plus && chmod 777 Plus && ./Plus"
+            echo "Ssh kur seçildi."
+            echo "SSH websocketli olan"
             apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Plus && chmod 777 Plus && ./Plus
             ;;
         2)
-            echo "x-ui kur secildi."
-            echo "X-ui English "
-          
-bash <(curl -Ls https://raw.githubusercontent.com/NidukaAkalanka/x-ui-english/master/install.sh)
+            echo "x-ui kur seçildi."
+            echo "X-ui English"
+            bash <(curl -Ls https://raw.githubusercontent.com/NidukaAkalanka/x-ui-english/master/install.sh)
             ;;
         3)
-            echo "nkmarket güncelle secildi."
-            echo "Calisan komut: apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/nkglobalmarket/SSHPLUS/master/nkmarket.sh && chmod 777 nkmarket.sh && ./nkmarket.sh"
-            wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/main/nkmarket && chmod 777 nkmarket && ./nkmarket 
+            echo "nkmarket güncelle seçildi."
+            echo "Çalışan komut: apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/nkglobalmarket/SSHPLUS/master/nkmarket.sh && chmod 777 nkmarket.sh && ./nkmarket.sh"
+            wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/main/nkmarket && chmod 777 nkmarket && ./nkmarket
             ;;
         4)
-            echo "Cikis secildi. Script kapatiliyor."
+            echo "Gerekli dosyaları yükle seçildi. Komutlar ekleniyor..."
+            sudo apt-get update
+            sudo apt-get install curl
+            sudo rm /var/lib/dpkg/lock-frontend
+            sudo rm /var/lib/apt/lists/lock
+            sudo rm /var/cache/apt/archives/lock
+            sudo rm /var/lib/dpkg/lock
+            echo "Komutlar başarıyla eklendi."
+            ;;
+        5)
+            echo "Çıkış seçildi. Script kapatılıyor."
             exit 0
             ;;
         *)
-            echo "Gecersiz secenek. Tekrar deneyin."
+            echo "Geçersiz seçenek. Tekrar deneyin."
             ;;
     esac
 
-    read -p "Devam etmek icin bir tusa basin..."
+    read -p "Devam etmek için bir tuşa basın..."
 done
