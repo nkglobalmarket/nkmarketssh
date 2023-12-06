@@ -1994,7 +1994,7 @@ exit 0' >$RCLOCAL
 	fun_sslh() {
 		[[ "$(netstat -nltp | grep 'sslh' | wc -l)" = '0' ]] && {
 			clear
-			echo -e "\E[44;1;37m             INSTALADOR SSLH               \E[0m\n"
+			echo -e "\E[44;1;37m             SSLH   KURUCU            \E[0m\n"
 			echo -e "\n\033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mA PORTA \033[1;37m443 \033[1;32mSERA USADA POR PADRAO\033[0m\n"
 			echo -ne "\033[1;32mREALMENTE DESEJA INSTALAR O SSLH \033[1;31m? \033[1;33m[s/n]:\033[1;37m "
 			read resp
@@ -2007,15 +2007,15 @@ exit 0' >$RCLOCAL
 					echo -e "#Modo autónomo\n\nRUN=yes\n\nDAEMON=/usr/sbin/sslh\n\nDAEMON_OPTS='--user sslh --listen 0.0.0.0:443 --ssh 127.0.0.1:22 --ssl 127.0.0.1:$ptssl --http 127.0.0.1:80 --openvpn 127.0.0.1:$ptvpn --pidfile /var/run/sslh/sslh.pid'" >/etc/default/sslh
 					/etc/init.d/sslh start && service sslh start
 				}
-				echo -e "\n\033[1;32mINSTALANDO O SSLH !\033[0m\n"
+				echo -e "\n\033[1;32mSSLH KURULUMU!\033[0m\n"
 				fun_bar 'fun_instsslh'
-				echo -e "\n\033[1;32mINICIANDO O SSLH !\033[0m\n"
+				echo -e "\n\033[1;32mSSLH BASLAT!\033[0m\n"
 				fun_bar '/etc/init.d/sslh restart && service sslh restart'
-				[[ $(netstat -nplt | grep -w 'sslh' | wc -l) != '0' ]] && echo -e "\n\033[1;32mINSTALADO COM SUCESSO !\033[0m" || echo -e "\n\033[1;31mERRO INESPERADO !\033[0m"
+				[[ $(netstat -nplt | grep -w 'sslh' | wc -l) != '0' ]] && echo -e "\n\033[1;32mYUKLEME BASARILI !\033[0m" || echo -e "\n\033[1;31mBILINMEYEN HATA !\033[0m"
 				sleep 3
 				fun_conexao
 			} || {
-				echo -e "\n\033[1;31mRetornando.."
+				echo -e "\n\033[1;31mGERI DONULUYOR.."
 				sleep 2
 				fun_conexao
 			}
