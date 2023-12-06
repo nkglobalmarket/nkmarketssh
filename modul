@@ -2021,8 +2021,8 @@ exit 0' >$RCLOCAL
 			}
 		} || {
 			clear
-			echo -e "\E[41;1;37m             REMOVER O SSLH               \E[0m\n"
-			echo -ne "\033[1;32mREALMENTE DESEJA REMOVER O SSLH \033[1;31m? \033[1;33m[s/n]:\033[1;37m "
+			echo -e "\E[41;1;37m              SSLH    KALDIR           \E[0m\n"
+			echo -ne "\033[1;32mSSLH KALDIRMAK ISTIYORMUSUNUZ \033[1;31m? \033[1;33m[s/n]:\033[1;37m "
 			read respo
 			[[ "$respo" = "s" ]] && {
 				fun_delsslh() {
@@ -2030,13 +2030,13 @@ exit 0' >$RCLOCAL
 					apt-get remove sslh -y
 					apt-get purge sslh -y
 				}
-				echo -e "\n\033[1;32mREMOVENDO O SSLH !\033[0m\n"
+				echo -e "\n\033[1;32mSSLH KALDIRILIYOR !\033[0m\n"
 				fun_bar 'fun_delsslh'
-				echo -e "\n\033[1;32mREMOVIDO COM SUCESSO !\033[0m\n"
+				echo -e "\n\033[1;32mKALDIRMA BASARILI !\033[0m\n"
 				sleep 2
 				fun_conexao
 			} || {
-				echo -e "\n\033[1;31mRetornando.."
+				echo -e "\n\033[1;31mGERI DONULUYOR.."
 				sleep 2
 				fun_conexao
 			}
@@ -2048,7 +2048,7 @@ exit 0' >$RCLOCAL
 		while true $x != "ok"; do
 			[[ ! -e '/home/sshplus' ]] && exit 0
 			clear
-			echo -e "\E[44;1;37m                MODO DE CONEXAO                 \E[0m\n"
+			echo -e "\E[44;1;37m                BAGLANTI MODU                 \E[0m\n"
 			echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: \033[1;37m$(grep 'Port' /etc/ssh/sshd_config | cut -d' ' -f2 | grep -v 'no' | xargs)" && sts6="\033[1;32m◉ "
 			[[ "$(netstat -tlpn | grep 'docker' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mCHISEL: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'docker' | awk {'print $4'} | cut -d: -f2 | xargs)"
