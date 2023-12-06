@@ -10,11 +10,11 @@ sudo cp "$0" /usr/local/bin/nkmarketvip
 while true; do
     clear
     echo "----NK MARKET SUNUCU KURUCU----"
-    echo "1. ssh kur"
-    echo "2. x-ui kur"
-    echo "3. nkmarket güncelle"
-    echo "4. Gerekli dosyaları yükle"
-    echo "5. Çıkış"
+    echo "1. Ssh kur                     6. Baglantı Modlarını Kur             "
+    echo "2. X-ui kur                    7.             "
+    echo "3. Scripti güncelle            8.            "
+    echo "4. Gerekli dosyaları yükle(1)  9.                  "
+    echo "5. Baglantı Modlarını Kur      10.ÇIKIS                               "
 
     read -p "Seçenek girin (1/2/3/4/5): " option
 
@@ -44,7 +44,33 @@ while true; do
             sudo rm /var/lib/dpkg/lock
             echo "Komutlar başarıyla eklendi."
             ;;
-        5)
+         5)
+            echo "Çıkış seçildi. Script kapatılıyor."
+            exit 0
+            ;;
+
+           6)
+           echo "Çıkış seçildi. Script kapatılıyor."
+            exit 0
+            ;;
+           7)
+           echo "Çıkış seçildi. Script kapatılıyor."
+            exit 0
+            ;;
+            8)
+           echo "Çıkış seçildi. Script kapatılıyor."
+            exit 0
+            ;;
+           9)
+           echo "Çıkış seçildi. Script kapatılıyor."
+            exit 0
+            ;;
+           10)
+           echo "Çıkış seçildi. Script kapatılıyor."
+            exit 0
+            ;;
+
+         11)
             echo "Çıkış seçildi. Script kapatılıyor."
             exit 0
             ;;
