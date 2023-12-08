@@ -18,7 +18,7 @@ fi
 send_speedtest_result() {
     local result=$(speedtest-cli --share)
     local speedtest_url=$(echo "$result" | grep -oP 'Share results: \Khttp://www.speedtest.net/result/\S+')
-    local message="Hız Testi Sonuçları:\nDownload: $speedtest_url"
+    local message="Hız Testi\nDownload: $speedtest_url"
 
     curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
         -d chat_id="$TELEGRAM_CHAT_ID" \
