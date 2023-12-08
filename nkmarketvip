@@ -5,6 +5,9 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # Scripti kaydetme komutu
 sudo cp "$0" /usr/local/bin/nkmarketvip
 
+
+
+
 # Fonksiyon: Versiyon Kontrolü
 version_check() {
     local current_version="1.2"
@@ -23,6 +26,23 @@ version_check() {
 
 while true; do
     clear
+
+version_check() {
+    local current_version="1.2"
+    local latest_version=$(curl -s https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/versiyon)
+
+    echo "----NK MARKET SUNUCU KURUCU.----"
+    echo "Güncel Sürüm: $current_version"
+    echo "En Yeni Sürüm: $latest_version"
+    echo "----NK MARKET SUNUCU KURUCU.----"
+}
+
+# NK MARKET SUNUCU KURUCU
+
+# Versiyon kontrolünü yap
+
+version_check
+
     echo "----NK MARKET SUNUCU KURUCU. $current_version ----"
     echo "1. Ssh kur                     6. Baglantı Modlarını Kur             "
     echo "2. X-ui kur                    7. CUSTOM UDP            "
