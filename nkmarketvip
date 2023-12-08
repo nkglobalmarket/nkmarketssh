@@ -5,18 +5,32 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # Scripti kaydetme komutu
 sudo cp "$0" /usr/local/bin/nkmarketvip
 
+# Fonksiyon: Versiyon Kontrolü
+version_check() {
+    local current_version="1.2"
+    local latest_version=$(curl -s https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/versiyon)
+
+    if [[ "$latest_version" > "$current_version" ]]; then
+        echo "Scriptin güncel bir sürümü mevcut. Yeni sürümü indirmek için 3 numaralı seçeneği kullanabilirsiniz."
+    elif [[ "$latest_version" == "$current_version" ]]; then
+        echo "Script zaten güncel. Yeni bir güncelleme bulunmuyor."
+    else
+        echo "Script sürümünüz daha yeni veya eşit. Bu durumda güncelleme yapmanıza gerek yok."
+    fi
+}
+
 # NK MARKET SUNUCU KURUCU
 
 while true; do
     clear
-    echo "----NK MARKET SUNUCU KURUCU. 1.2----"
+    echo "----NK MARKET SUNUCU KURUCU. $current_version----"
     echo "1. Ssh kur                     6. Baglantı Modlarını Kur             "
     echo "2. X-ui kur                    7. CUSTOM UDP            "
     echo "3. Scripti güncelle            8.GELISTIRILMEYE DEVAM EDILIYOR      "
-    echo "4. Gerekli dosyaları yükle(1)  9.GELISTIRILMEYE DEVAM EDILIYOR       "
+    echo "4. Gerekli dosyaları yükle(1)  9. Scripti Kaldır                    "
     echo "5. Baglantı Modlarını Kur      10.ÇIKIS                               "
 
-    read -p "Seçenek girin (0 Cıkış): " option
+    read -p "Seçenek girin (0 Çıkış): " option
 
     case $option in
         1)
@@ -32,7 +46,7 @@ while true; do
         3)
             echo "nkmarket güncelle seçildi."
             echo "/master/nkmarket.sh && chmod 777 nkmarket.sh && ./nkmarket.sh"
-       wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/main/nkmarket && chmod 777 nkmarket && ./nkmarket
+            wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/main/nkmarket && chmod 777 nkmarket && ./nkmarket
             ;;
         4)
             echo "Gerekli dosyaları yükle seçildi. Komutlar ekleniyor..."
@@ -44,33 +58,34 @@ while true; do
             sudo rm /var/lib/dpkg/lock
             echo "Komutlar başarıyla eklendi."
             ;;
-         5)
+        5)
             echo "Çıkış seçildi. Script kapatılıyor."
             exit 0
             ;;
 
-           6)
-           echo "Çıkış seçildi. Script kapatılıyor."
+        6)
+            echo "Çıkış seçildi. Script kapatılıyor."
             exit 0
             ;;
-           7)
-           echo "CUSTOMUDP"
+        7)
+            echo "CUSTOMUDP"
             wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/main/customudp && chmod 777 customudp && ./customudp
             ;;
-            8)
-           echo "Çıkış seçildi. Script kapatılıyor."
+        8)
+            version_check
+            ;;
+        9)
+            echo "Scripti Kaldır seçildi. Script ve dosyalarını kaldırma işlemi başlıyor..."
+            sudo rm /usr/local/bin/nkmarketvip
+            rm nkmarket customudp
+            echo "Script ve dosyalar başarıyla kaldırıldı."
             exit 0
             ;;
-           9)
-           echo "Çıkış seçildi. Script kapatılıyor."
+        10)
+            echo "Çıkış seçildi. Script kapatılıyor."
             exit 0
             ;;
-           10)
-           echo "Çıkış seçildi. Script kapatılıyor."
-            exit 0
-            ;;
-
-         0)
+        0)
             echo "Çıkış seçildi. Script kapatılıyor."
             exit 0
             ;;
