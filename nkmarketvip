@@ -12,11 +12,11 @@ while true; do
     echo "----NK MARKET SUNUCU KURUCU----"
     echo "1. Ssh kur                     6. Baglantı Modlarını Kur             "
     echo "2. X-ui kur                    7. CUSTOM UDP            "
-    echo "3. Scripti güncelle            8.            "
-    echo "4. Gerekli dosyaları yükle(1)  9.                  "
+    echo "3. Scripti güncelle            8.GELISTIRILMEYE DEVAM EDILIYOR      "
+    echo "4. Gerekli dosyaları yükle(1)  9.GELISTIRILMEYE DEVAM EDILIYOR       "
     echo "5. Baglantı Modlarını Kur      10.ÇIKIS                               "
 
-    read -p "Seçenek girin (1/2/3/4/5): " option
+    read -p "Seçenek girin (0 Cıkış): " option
 
     case $option in
         1)
@@ -70,7 +70,7 @@ while true; do
             exit 0
             ;;
 
-         11)
+         0)
             echo "Çıkış seçildi. Script kapatılıyor."
             exit 0
             ;;
