@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "NKMARKET HIZ TESTİ:"
+
+# Telegram botunuzun token'ını buraya ekleyin
+TELEGRAM_BOT_TOKEN="6691310838:AAFnPrghRYQoIVGlpijeDXqBIrxMvpNaveU"
+# Hız testi sonuçlarını göndereceğiniz Telegram chat ID'sini buraya ekleyin
+TELEGRAM_CHAT_ID="932353175"
+
+# speedtest-cli yüklü mü kontrol et
+if ! command -v speedtest-cli &> /dev/null; then
+    echo "speedtest-cli yüklü değil. Yükleniyor..."
+    sudo apt-get install speedtest-cli
+    echo "speedtest-cli başarıyla yüklendi."
+fi
+
+# speedtest-cli komutu ile hız testini yap ve paylaş
+result=$(speedtest-cli --share)
+
+# Sonuçları Telegram botu aracılığıyla gönder
+curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
+    -d chat_id="$TELEGRAM_CHAT_ID" \
+    -d text="$result"
