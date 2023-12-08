@@ -1,23 +1,40 @@
 #!/bin/bash
 
-echo "NKMARKET HIZ TESTİ:"
+echo "NKMARKET HIZ TESTİ BOTU:"
 
-# Telegram botunuzun token'ını buraya ekleyin
+# Telegram botunuzun token'ı ve chat ID'si
 TELEGRAM_BOT_TOKEN="6691310838:AAFnPrghRYQoIVGlpijeDXqBIrxMvpNaveU"
-# Hız testi sonuçlarını göndereceğiniz Telegram chat ID'sini buraya ekleyin
 TELEGRAM_CHAT_ID="932353175"
 
 # speedtest-cli yüklü mü kontrol et
 if ! command -v speedtest-cli &> /dev/null; then
     echo "speedtest-cli yüklü değil. Yükleniyor..."
+sudo apt-get install jq 
     sudo apt-get install speedtest-cli
     echo "speedtest-cli başarıyla yüklendi."
 fi
 
-# speedtest-cli komutu ile hız testini yap ve paylaş
-result=$(speedtest-cli --share)
+# Telegram botu aracılığıyla hız testi sonuçlarını gönderen fonksiyon
+send_speedtest_result() {
+    local result=$(speedtest-cli --share)
+    local speedtest_url=$(echo "$result" | grep -oP 'Share results: \Khttp://www.speedtest.net/result/\S+')
+    local message="Hız Testi Sonuçları:\nDownload: $speedtest_url"
 
-# Sonuçları Telegram botu aracılığıyla gönder
-curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
-    -d chat_id="$TELEGRAM_CHAT_ID" \
-    -d text="$result"
+    curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
+        -d chat_id="$TELEGRAM_CHAT_ID" \
+        -d text="$message"
+}
+
+# Bot komutlarını dinle
+while true; do
+    # Telegram bot API'yi kontrol et
+    updates=$(curl -s "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getUpdates")
+    command_found=$(echo "$updates" | jq -r '.result[] | select(.message.text == "/speedtest") | .message.chat.id')
+
+    if [ -n "$command_found" ]; then
+        send_speedtest_result
+    fi
+
+    # Her 5 saniyede bir kontrol et (isteğe bağlı, sık kontrollerin API sınırlamalarına dikkat edin)
+    sleep 5
+done
