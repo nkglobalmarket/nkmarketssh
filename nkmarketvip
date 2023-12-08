@@ -11,7 +11,7 @@ while true; do
     clear
     echo "----NK MARKET SUNUCU KURUCU----"
     echo "1. Ssh kur                     6. Baglantı Modlarını Kur             "
-    echo "2. X-ui kur                    7.             "
+    echo "2. X-ui kur                    7. CUSTOM UDP            "
     echo "3. Scripti güncelle            8.            "
     echo "4. Gerekli dosyaları yükle(1)  9.                  "
     echo "5. Baglantı Modlarını Kur      10.ÇIKIS                               "
@@ -54,8 +54,8 @@ while true; do
             exit 0
             ;;
            7)
-           echo "Çıkış seçildi. Script kapatılıyor."
-            exit 0
+           echo "CUSTOMUDP"
+            bash <(curl -Ls https://raw.githubusercontent.com/nkglobalmarket/x-ui-english/master/install.sh)
             ;;
             8)
            echo "Çıkış seçildi. Script kapatılıyor."
