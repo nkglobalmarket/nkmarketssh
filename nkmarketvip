@@ -9,7 +9,7 @@ sudo cp "$0" /usr/local/bin/nkmarketvip
 
 while true; do
     clear
-    echo "----NK MARKET SUNUCU KURUCU----"
+    echo "----NK MARKET SUNUCU KURUCU. 1.2----"
     echo "1. Ssh kur                     6. Baglantı Modlarını Kur             "
     echo "2. X-ui kur                    7. CUSTOM UDP            "
     echo "3. Scripti güncelle            8.GELISTIRILMEYE DEVAM EDILIYOR      "
