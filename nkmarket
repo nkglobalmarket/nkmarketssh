@@ -9,8 +9,8 @@ if [ -f nkmarketvip ]; then
     echo "Mevcut 'nkmarketvip' dosyası yedeklendi."
 fi
 
-# nkmarketvip dosyasını indir ve nkmarket dosyasına kaydet
-wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip -O nkmarket
-chmod +x nkmarket
-echo "nkmarketvip dosyası başarıyla indirildi ve nkmarket olarak kaydedildi."
-echo "Artık 'nkmarket' komutunu kullanabilirsiniz."
+# nkmarketvip dosyasını indir ve nkmarketvip olarak kaydet
+wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip -O nkmarketvip
+chmod +x nkmarketvip
+echo "nkmarketvip dosyası başarıyla indirildi ve nkmarketvip olarak kaydedildi."
+echo "Artık 'nkmarketvip' komutunu kullanabilirsiniz."
