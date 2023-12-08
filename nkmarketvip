@@ -17,7 +17,7 @@ version_check() {
 
 
 # Fonksiyon: Versiyon Kontrolü
-version_check() {
+version_check1() {
     local current_version="1.2"
     local latest_version=$(curl -s https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/versiyon.txt)
 
@@ -92,7 +92,7 @@ version_check
             wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/main/customudp && chmod 777 customudp && ./customudp
             ;;
         8)
-            version_check
+            version_check1
             ;;
         9)
             echo "Scripti Kaldır seçildi. Script ve dosyalarını kaldırma işlemi başlıyor..."
