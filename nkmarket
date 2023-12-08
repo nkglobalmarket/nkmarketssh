@@ -11,7 +11,7 @@ if [[ $response =~ ^[EeYy]$ ]]; then
         echo "Mevcut 'nkmarket' dosyası yedeklenerek 'nkmarket_backup' olarak adlandırıldı."
     fi
 
-    wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip -O nkmarket
+    wget -O nkmarket https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip
     chmod +x nkmarket
     echo "nkmarketvip dosyası başarıyla indirildi ve nkmarket olarak kaydedildi."
     echo "Artık 'nkmarket' komutunu kullanabilirsiniz."
