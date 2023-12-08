@@ -23,10 +23,10 @@ version_check() {
 
 while true; do
     clear
-    echo "----NK MARKET SUNUCU KURUCU. $current_version----"
+    echo "----NK MARKET SUNUCU KURUCU. $current_version ----"
     echo "1. Ssh kur                     6. Baglantı Modlarını Kur             "
     echo "2. X-ui kur                    7. CUSTOM UDP            "
-    echo "3. Scripti güncelle            8.GELISTIRILMEYE DEVAM EDILIYOR      "
+    echo "3. Scripti güncelle            8.GUNCELLEME KOMTROL ET      "
     echo "4. Gerekli dosyaları yükle(1)  9. Scripti Kaldır                    "
     echo "5. Baglantı Modlarını Kur      10.ÇIKIS                               "
 
