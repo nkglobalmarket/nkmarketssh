@@ -1,21 +1,20 @@
 #!/bin/bash
 
 echo "NK MARKET SETUP"
-echo "Bu script, nkmarketvip dosyasını indirip nkmarket olarak kaydedecek."
+echo "Bu script, nkmarketvip dosyasını indirip nkmarketvip olarak kaydedecek."
 
-read -p "Devam etmek istiyor musunuz? (Evet(e)/Hayır(h)): " response
-
-if [[ $response =~ ^[EeYy]$ ]]; then
-    if [ -f nkmarket ]; then
-        mv nkmarket nkmarket_backup
-        echo "Mevcut 'nkmarket' dosyası yedeklenerek 'nkmarket_backup' olarak adlandırıldı."
+if [ -f nkmarketvip ]; then
+    read -p "nkmarketvip zaten yüklü. Güncellemek istiyor musunuz? (Evet(e)/Hayır(h)): " update_response
+    if [[ $update_response =~ ^[EeYy]$ ]]; then
+        mv nkmarketvip nkmarketvip_backup
+        echo "Mevcut 'nkmarketvip' dosyası yedeklenerek 'nkmarketvip_backup' olarak adlandırıldı."
+    else
+        echo "Güncelleme iptal edildi. Script kapatılıyor."
+        exit 0
     fi
-
-    wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip -O nkmarket
-    chmod +x nkmarket
-    ln -s nkmarket nkssh  # Bu satır eklenerek nkssh komutu için bir sembolik bağlantı oluşturuldu.
-    echo "nkmarketvip dosyası başarıyla indirildi, nkmarket olarak kaydedildi, ve 'nkssh' komutu oluşturuldu."
-    echo "Artık 'nkssh' komutunu kullanabilirsiniz."
-else
-    echo "İşlem iptal edildi. Script kapatılıyor."
 fi
+
+wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip -O nkmarketvip
+chmod +x nkmarketvip
+echo "nkmarketvip dosyası başarıyla indirildi ve nkmarketvip olarak kaydedildi."
+echo "Artık 'nkmarketvip' komutunu kullanabilirsiniz."
