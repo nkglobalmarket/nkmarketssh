@@ -3,12 +3,14 @@
 echo "NK MARKET SETUP"
 echo "Bu script, nkmarketvip dosyasını indirip nkmarketvip olarak kaydedecek."
 
+# Eğer nkmarketvip dosyası varsa yedeğini al
 if [ -f nkmarketvip ]; then
-    rm nkmarketvip
-    echo "Mevcut 'nkmarketvip' dosyası silindi."
+    mv nkmarketvip nkmarketvip_backup
+    echo "Mevcut 'nkmarketvip' dosyası yedeklendi."
 fi
 
-wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip -O nkmarketvip
-chmod +x nkmarketvip
-echo "nkmarketvip dosyası başarıyla indirildi ve nkmarketvip olarak kaydedildi."
-echo "Artık 'nkmarketvip' komutunu kullanabilirsiniz."
+# nkmarketvip dosyasını indir ve nkmarket dosyasına kaydet
+wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip -O nkmarket
+chmod +x nkmarket
+echo "nkmarketvip dosyası başarıyla indirildi ve nkmarket olarak kaydedildi."
+echo "Artık 'nkmarket' komutunu kullanabilirsiniz."
