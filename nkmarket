@@ -11,6 +11,10 @@ fi
 
 # nkmarketvip dosyasını indir ve nkmarketvip olarak kaydet
 wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip -O nkmarketvip
+
 chmod +x nkmarketvip
+
+sudo mv nkmarketvip /usr/local/bin/
+chmod +x /usr/local/bin/nkmarketvip
 echo "nkmarketvip dosyası başarıyla indirildi ve nkmarketvip olarak kaydedildi."
 echo "Artık 'nkmarketvip' komutunu kullanabilirsiniz."
