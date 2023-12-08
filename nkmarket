@@ -4,14 +4,8 @@ echo "NK MARKET SETUP"
 echo "Bu script, nkmarketvip dosyasını indirip nkmarketvip olarak kaydedecek."
 
 if [ -f nkmarketvip ]; then
-    read -p "nkmarketvip zaten yüklü. Güncellemek istiyor musunuz? (Evet(e)/Hayır(h)): " update_response
-    if [[ $update_response =~ ^[EeYy]$ ]]; then
-        mv nkmarketvip nkmarketvip_backup
-        echo "Mevcut 'nkmarketvip' dosyası yedeklenerek 'nkmarketvip_backup' olarak adlandırıldı."
-    else
-        echo "Güncelleme iptal edildi. Script kapatılıyor."
-        exit 0
-    fi
+    rm nkmarketvip
+    echo "Mevcut 'nkmarketvip' dosyası silindi."
 fi
 
 wget https://raw.githubusercontent.com/nkglobalmarket/nkmarketssh/master/nkmarketvip -O nkmarketvip
