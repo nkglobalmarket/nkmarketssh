@@ -45,7 +45,7 @@ version_check
 
    
     echo "1. Ssh kur                     6. Baglantı Modlarını Kur             "
-    echo "2. X-ui kur                    7. CUSTOM UDP            "
+    echo "2. X-UI kur                    7. CUSTOM UDP            "
     echo "3. Scripti güncelle            8.GUNCELLEME KOMTROL ET      "
     echo "4. Gerekli dosyaları yükle(1)  9. Scripti Kaldır                    "
     echo "5. Baglantı Modlarını Kur      10.ÇIKIS                               "
